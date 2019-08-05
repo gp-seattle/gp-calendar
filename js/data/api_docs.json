@@ -1,0 +1,6 @@
+{
+    "/api_docs" : "[GET] Returns this webpage.",
+    "/create_account" : "[POST] Takes a email and password. Returns a 403 error if an account already exists with the given email",
+    "/login" : "[GET] Takes an email and a hashed password. Returns a 403 error if the login was not successful.",
+    "/orders" : "[GET] Endpoint used for testing purposes only"
+}
