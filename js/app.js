@@ -13,6 +13,10 @@ const ordersRoutes = require('./routes/orders')
 const loginRoutes = require('./routes/login/login')
 const apiDocsRoutes = require('./routes/api_docs')
 
+
+//gets calendar data in json format
+const data = require('./caldata')
+
 /*TODO
     -Create endpoints
     -convert csv to json format
