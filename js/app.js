@@ -12,10 +12,10 @@ const bodyParser = require('body-parser');
 const ordersRoutes = require('./routes/orders')
 const loginRoutes = require('./routes/login/login')
 const apiDocsRoutes = require('./routes/api_docs')
-
+const cal_dataRoutes = require('./routes/cal_data')
 
 //gets calendar data in json format
-const data = require('./caldata')
+const data = require('./calDataToJson')
 
 /*TODO
     -Create endpoints
@@ -74,7 +74,7 @@ app.use(bodyParser.json());
 app.use('/orders', ordersRoutes);
 app.use('/login', loginRoutes);
 app.use('/api_docs', apiDocsRoutes);
-
+app.use('/cal_data', cal_dataRoutes);
 
 //handles 404 not found
 app.use((req, res, next) => {

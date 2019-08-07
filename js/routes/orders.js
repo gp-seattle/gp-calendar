@@ -4,13 +4,11 @@ const express = require('express')
 //acts sort of like a middleware with routing capabilities
 const router = express.Router();
 
-const data = require('./../caldata')
+const data = require('../calDataToJson')
 
 
 const orders = require('./../data/orders');
 
-console.log(data)
-console.log("^this should be the data")
 
 // handle incoming request to /users
 router.get('/', (req, res, next) => {

@@ -1,7 +1,25 @@
 {
-    "/api_docs" : "GET=> Returns this webpage.",
-    "/cal_data" : "GET=> Returns calendar events in a json format based on the parameters passed in. year must be 1-5 with 5 being staff. Start_Time is defaulted to 0 and EndTime is defaulted to 2359. Both are in hhmm format.<br>&emsp;PARAMS=> ([use_Id : '',] [Start_Date: #,] [End_Date : #,] [year: #,] [Start_Time : #,] [End_Time : #])<br>&emsp;FORMAT=> [{Date : #, Start_Time : #, End_Time : #, What : '', Where : '', Group_GP : #},{...}]",
-    "/create_account" : "POST=> Takes a email and password. Returns a 403 error if an account already exists with the given email",
-    "/login" : "GET=> Takes an email and a hashed password. Returns a 403 error if the login was not successful.",
-    "/orders" : "GET=> Endpoint used for testing purposes only"
+    "/api_docs" : {
+        "discript" : "GET=> Returns this webpage."
+    },
+    "/cal_data" : {
+        "discript" : "GET=> Returns events in a json format based on the parameters passed in. Time is in hhmm format. Date is in yyyymmdd format",
+        "params" : "PARAMS=> ([Start_Date: #,] [End_Date : #,] [Start_Time : #,] [End_Time : #])",
+        "format" : "RETURNED=> [{Date : #, Start_Time : #, End_Time : #, What : '', Where : '', Group_GP : #},{...}]",
+        "wip params" : "WIP PARAMS=> ([use_Id : '',] [year: #,])"
+    },
+    "/create_account [WIP]" : {
+        "discript" : "POST=> Creates a new account. Takes an email, hashed password, and current year (1-5, 5 is staff).",
+        "params" : "PARAMS=> (email : '', hashPass : '', year : #)",
+        "format" : "RETURNED=> 403 error if an account already exists with the given email"
+    },
+    "/delete_account [WIP]" : {
+        "discript" : "DELETE=> Deletes an existing account. Takes an email and a hashed password."
+    },
+    "/login [WIP]" : {
+        "discript" : "GET=> Takes an email and a hashed password. Returns a 403 error if the login was not successful."
+    },
+    "/orders" : {
+        "discript" : "GET=> Endpoint used for testing purposes only. Contact Wyatt to have this set up for your own testing."
+    }
 }

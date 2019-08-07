@@ -7,13 +7,20 @@ const router = express.Router();
 
 const users = require('./../data/api_docs');
 
+//sets up the html code
 var bodyOpen = "<HTML><head><title>Backend API documentation</title></head><body>"
 
+//closes off all the html tags
 var bodyClose = "</body></HTML>"
 
 var core = ""
 for (key in users) {
-    core += "<p><b>" + key + "</b><br>&emsp;" + users[key] + "</p>"
+    core += "<p><b>" + key 
+    for (subheading in users[key]) {
+        core += "</b><br>&emsp;" + users[key][subheading]
+    }
+    core += "</p>";
+    
 }
 
 
