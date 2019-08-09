@@ -12,6 +12,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "convert-csv-to-json": "0.0.15",
+    "crypto-json": "^2.0.2",
     "express": "^4.17.1",
     "express-rate-limit": "^5.0.0",
     "morgan": "^1.9.1"

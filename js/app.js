@@ -19,7 +19,6 @@ const data = require('./calDataToJson')
 
 /*TODO
     -Create endpoints
-    -convert csv to json format
     -finish error codes
         -403?
         -401
