@@ -1,30 +1,26 @@
-var data = require('./calDataToJson');
+const cryptoJSON = require('crypto-json')
 
-//takes in a starting date and removes anything from data that isnt on or after the starting date
-function startDate(start){
-    var temp = []
-    for (i = data.length - 1; i >= 0; i--) {
-        if (parseInt(data[i]['Date']) >= start) {
-            temp.unshift(data[i])
-        }
-    }
-    data = temp;
-    temp = []
+//sets up vars to encrypt data
+const keys = ['test1', 'test2']
+const algorithm = 'aes256'
+const encoding = 'hex'
+const password = require('./data/password')
 
-}
-
-//takes in an end date and removes anything from data that isnt on or before the end date
-function endDate(end){
-    var temp = []
-    for (i = data.length - 1; i >= 0; i--) {
-        if (parseInt(data[i]['Date']) <= end) {
-            temp.unshift(data[i])
-        }
-    }
-    data = temp;
-    temp = []
-
-}
+const fs = require('fs');
 
 
-console.log(data.length)
+/*{ 
+    "test1": "encryptme", 
+    "test2": "encrypt me too!"
+}*/
+
+var testfile = require('./data/test')
+
+var encryptUsers = cryptoJSON.encrypt(testfile, password, algorithm, encoding, keys);
+
+console.log(encryptUsers)
+
+//fs.writeFileSync('./data/test.json', JSON.stringify(encryptUsers));
+
+//var decryptUsers = cryptoJSON.decrypt(testfile, password, algorithm, encoding, keys);
+//fs.writeFileSync('./data/test.json', JSON.stringify(decryptUsers));
