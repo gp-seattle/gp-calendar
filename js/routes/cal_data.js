@@ -56,6 +56,7 @@ function removeUpper(limit, index) {
 
 // handle incoming request to /users
 router.get('/', (req, res, next) => {
+    //checks to see what params were passed
     var sdDef = false;
     var edDef = false;
     var stDef = false;
@@ -91,21 +92,19 @@ router.get('/', (req, res, next) => {
     } else {
         etDef = false;
     }
-
-    console.log(data.length)
     
-    //checks if time is valid
+    //checks for a valid call before replying with a status code
     if (sdDef && edDef && parseInt(params['End_Date']) < parseInt(params['Start_Date'])) {
         console.log("403")
         const error = new Error("Bad Requests");
         error.status = 403;
-        error.message = "403 End_Date is before Start"
+        error.message = "403 End_Date is before Start_Date"
         next(error);        
     } else if (stDef && etDef && parseInt(params['End_Time']) < parseInt(params['Start_Time'])) {
         console.log("403")
         const error = new Error("Bad Requests");
         error.status = 403;
-        error.message = "403 End_Date is before Start"
+        error.message = "403 End_Time is before Start_Time"
         next(error);  
     } else { 
         res.status(200)
