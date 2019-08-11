@@ -4,9 +4,9 @@ const express = require('express')
 //acts sort of like a middleware with routing capabilities
 const router = express.Router();
 
-const DATA_BACKUP = require('../calDataToJson')
+const DATA_BACKUP = require('../modules/calDataToJson')
 
-var data = require('../calDataToJson')
+var data = DATA_BACKUP
 
 
 //takes in a starting date and removes anything from data that isnt on or after the starting date

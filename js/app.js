@@ -13,9 +13,11 @@ const ordersRoutes = require('./routes/orders')
 const loginRoutes = require('./routes/login/login')
 const apiDocsRoutes = require('./routes/api_docs')
 const cal_dataRoutes = require('./routes/cal_data')
+const create_accountRoutes = require('./routes/create_account')
+
 
 //gets calendar data in json format
-const data = require('./calDataToJson')
+const data = require('./modules/calDataToJson')
 
 /*TODO
     -Create endpoints
@@ -69,11 +71,17 @@ app.use(bodyParser.urlencoded({extended:false}));
 //  and this one is sepecifically for json files
 app.use(bodyParser.json());
 
-//uses routes for endpoints
-app.use('/orders', ordersRoutes);
+//get routes for endpoints
+app.use('/orders', ordersRoutes)
 app.use('/login', loginRoutes);
 app.use('/api_docs', apiDocsRoutes);
 app.use('/cal_data', cal_dataRoutes);
+
+
+
+app.use('/create_account', create_accountRoutes);
+
+
 
 //handles 404 not found
 app.use((req, res, next) => {
