@@ -1,0 +1,7 @@
+{
+    "orders" : "./routes/orders",
+    "login" : "./routes/login/login",
+    "docs" : "./routes/api_docs",
+    "cal_data" : "./routes/cal_data",
+    "create_account" : "./routes/create_account"
+}
