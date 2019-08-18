@@ -73,7 +73,6 @@ router.get('/', (req, res, next) => {
 
     if (params['End_Date'] != undefined) {
         edDef = true;
-        console.log("Limiting End date")
         endDate(params['End_Date']);
     } else {
         edDef = false;
@@ -95,13 +94,11 @@ router.get('/', (req, res, next) => {
     
     //checks for a valid call before replying with a status code
     if (sdDef && edDef && parseInt(params['End_Date']) < parseInt(params['Start_Date'])) {
-        console.log("403")
         const error = new Error("Bad Requests");
         error.status = 403;
         error.message = "403 End_Date is before Start_Date"
         next(error);        
     } else if (stDef && etDef && parseInt(params['End_Time']) < parseInt(params['Start_Time'])) {
-        console.log("403")
         const error = new Error("Bad Requests");
         error.status = 403;
         error.message = "403 End_Time is before Start_Time"

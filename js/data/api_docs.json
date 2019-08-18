@@ -1,25 +1,35 @@
 {
+    "<h4>FORMAT" : {
+        "callType" : "GET/DELETE/POST/PUT=> The types of calls handled at this endpoint, followed by the description",
+        "params" : "PARAMS=> 'expected name' : expected type, ['optional param name' : optional param type]",
+        "format" : "RETURNED=> Fromat expected to be returned from a GET request",
+        "wip params" : "WIP PARAMS=> Work in progress parameters. Not currently availible</h4>"
+    },
     "/api_docs" : {
-        "discript" : "GET=> Returns this webpage."
+        "descript" : "GET=> Returns this webpage."
     },
     "/cal_data" : {
-        "discript" : "GET=> Returns events in a json format based on the parameters passed in. Time is in hhmm format. Date is in yyyymmdd format",
+        "descript" : "GET=> Returns events in a json format based on the parameters passed in. Time is in hhmm format. Date is in yyyymmdd format",
         "params" : "PARAMS=> ([Start_Date: #,] [End_Date : #,] [Start_Time : #,] [End_Time : #])",
         "format" : "RETURNED=> [{Date : #, Start_Time : #, End_Time : #, What : '', Where : '', Group_GP : #},{...}]",
         "wip params" : "WIP PARAMS=> ([use_Id : '',] [year: #,])"
     },
     "/create_account" : {
-        "discript" : "POST=> Creates a new account. Takes an email, hashed password, name, current year (1-5, 5 is staff), student leader status, and gender.",
-        "params" : "PARAMS=> (email : '', hashPass : '', name : '', year : #, isStudentLeader : bool, gender : '', isAdmin : bool)",
+        "descript" : "POST=> Creates a new account. Takes an email, hashed password, name, current year (1-5, 5 is staff), student leader status, and gender.",
+        "params" : "PARAMS=> (email : '', hashPass : '', name : '', year : #, isStudentLeader : bool, gender : '')",
         "format" : "RETURNED=> 403 error if an account already exists with the given email"
     },
     "/delete_account [WIP]" : {
-        "discript" : "DELETE=> Deletes an existing account. Takes an email and a hashed password."
+        "descript" : "DELETE=> Deletes an existing account. Takes an email and a hashed password."
     },
     "/login [WIP]" : {
-        "discript" : "GET=> Takes an email and a hashed password. Returns a 403 error if the login was not successful."
+        "descript" : "GET=> Takes an email and a hashed password. Returns a 403 error if the login was not successful."
     },
     "/orders" : {
-        "discript" : "GET=> Endpoint used for testing purposes only. Contact Wyatt to have this set up for your own testing."
+        "descript" : "GET=> Endpoint used for testing purposes only. Contact Wyatt to have this set up for your own testing."
+    },
+    "/validate_account" : {
+        "descript" : "PUT=> Changes status of account to validated",
+        "params" : "PARAMS=> ('email' : '')"
     }
 }

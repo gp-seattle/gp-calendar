@@ -15,11 +15,10 @@ router.get('/', (req, res, next) => {
         "hello" : "world"
     }
 
-    console.log(fs.readFileSync('./data/users.json', 'utf8'))
-    console.log(writeMe)
+
 
     res.status(200)
-    fs.writeFileSync('./data/users.json', JSON.stringify(writeMe ));
+   // fs.writeFileSync('./data/users.json', JSON.stringify(writeMe ));
     
     res.send("b");
 });

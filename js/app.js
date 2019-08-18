@@ -14,7 +14,7 @@ const loginRoutes = require('./routes/login/login')
 const apiDocsRoutes = require('./routes/api_docs')
 const cal_dataRoutes = require('./routes/cal_data')
 const create_accountRoutes = require('./routes/create_account')
-
+const validate_accountRoutes = require('./routes/validateAccount.js')
 
 //gets calendar data in json format
 const data = require('./modules/calDataToJson')
@@ -67,7 +67,7 @@ app.use(morgan('dev'));
 
 //lets the app use the body parser to parse the 
 //  this one is specifically for strings and arrays
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({extended:true}));
 //  and this one is sepecifically for json files
 app.use(bodyParser.json());
 
@@ -76,9 +76,7 @@ app.use('/orders', ordersRoutes)
 app.use('/login', loginRoutes);
 app.use('/api_docs', apiDocsRoutes);
 app.use('/cal_data', cal_dataRoutes);
-
-
-
+app.use('/validate_account', validate_accountRoutes);
 app.use('/create_account', create_accountRoutes);
 
 
