@@ -22,14 +22,19 @@ router.post('/', (req, res, next) => {
 
   //ensures there are all required keys
   var valid = true;
+  var paramMissing = "";
   for (key in paramsNeeded) {
     if (params[paramsNeeded[key]] == undefined) {
       valid = false;
+      paramMissing = paramsNeeded[key]
     }
   }
 
   if (!valid) {     //error for missing keys
-    
+    const error = new Error("Bad Requests");
+    error.status = 403;
+    error.message = "403 Missing parameter: " + paramMissing;
+    next(error);    
       
   } else if (containsEmail(users, params['email'])){     //errors for existing account
     const error = new Error("Bad Requests");

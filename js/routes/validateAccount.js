@@ -8,7 +8,7 @@ router.put('/', (req, res, next) => {
     var users = require('./../modules/decryptUsers')
     var done = false
     for (user in users) {
-        if(users[user]['email'] == req.body['email']) {
+        if(users[user]['email'] == req.query.email) {
             users[user]['validated'] = "true";
             done = true
         }
