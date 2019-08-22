@@ -1,7 +1,14 @@
 import requests
 
-response = requests.put('http://localhost:3100/validate_account',
-    data = {'email' : 'email@gpmail.org'}
+response = requests.post('http://localhost:3100/create_account',
+    data = {
+            'email' : 'wyatt@test.org',
+            'hashpass' : '515151',
+            'name' : 'Wyatt',
+            'year' : 1, 
+            'isStudentLeader' : 'false', 
+            'gender' : 'male'
+           }
 )
 
 

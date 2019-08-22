@@ -16,8 +16,7 @@ function encryptAll(users) {
         encryptUsers[i] = cryptoJSON.encrypt(users[i], password, algorithm, encoding, keys);
     }
 
-    fs.writeFileSync('./data/users.json', JSON.stringify(encryptUsers));
-    console.log("encrypted and written")
+    fs.writeFileSync('./data/users.json', JSON.stringify(encryptUsers, null, 3));
 }
 
 
