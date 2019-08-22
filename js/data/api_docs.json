@@ -23,7 +23,9 @@
         "descript" : "DELETE=> Deletes an existing account. Takes an email and a hashed password."
     },
     "/login [WIP]" : {
-        "descript" : "GET=> Takes an email and a hashed password. Returns a 403 error if the login was not successful."
+        "descript" : "GET=> Takes an email and a hashed password. Returns a 403 error if the login was not successful.",
+        "params" : "PARAMS=> ('email' : '', 'pass' : '')"
+
     },
     "/orders" : {
         "descript" : "GET=> Endpoint used for testing purposes only. Contact Wyatt to have this set up for your own testing."
