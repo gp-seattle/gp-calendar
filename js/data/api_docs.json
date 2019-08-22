@@ -16,7 +16,7 @@
     },
     "/create_account" : {
         "descript" : "POST=> Creates a new account. Takes an email, hashed password, name, current year (1-5, 5 is staff), student leader status, and gender.",
-        "params" : "PARAMS=> (email : '', hashPass : '', name : '', year : #, isStudentLeader : bool, gender : '')",
+        "params" : "PARAMS=> ('email' : '', 'hashPass' : '', 'name' : '', 'year' : #, 'isStudentLeader' : '', 'gender' : '')",
         "format" : "RETURNED=> 403 error if an account already exists with the given email"
     },
     "/delete_account [WIP]" : {

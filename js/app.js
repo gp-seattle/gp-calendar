@@ -2,42 +2,19 @@
 const express = require('express');
 //creates a new express application called app. This is what is sent off to any file that calls this one
 const app = express();
-//imports the rate limiter
+
+//impots packages
 const rateLimit = require("express-rate-limit");
-//import morgan package
 const morgan = require('morgan');
-//imports body parser package
 const bodyParser = require('body-parser');
+
 //sets up api endpoints
 const ordersRoutes = require('./routes/orders')
 const loginRoutes = require('./routes/login/login')
 const apiDocsRoutes = require('./routes/api_docs')
-const cal_dataRoutes = require('./routes/cal_data')
-const create_accountRoutes = require('./routes/create_account')
-const validate_accountRoutes = require('./routes/validateAccount.js')
-
-//gets calendar data in json format
-const data = require('./modules/calDataToJson')
-
-/*TODO
-    -Create endpoints
-    -finish error codes
-        -403?
-        -401
-        -429 vs 420?
-    -login system
-        -schema
-            -email
-            -uuid
-            -pass
-        -secure storage
-            -hash and salt
-*/
-
-
-
-
-
+const calDataaRoutes = require('./routes/cal_data')
+const createAccountRoutes = require('./routes/create_account')
+const validateAccountRoutes = require('./routes/validateAccount.js')
 
 
 //enables cors
@@ -58,26 +35,22 @@ const limiter = rateLimit({
   message: // message to be displayed when rate limit is reached
     '429 too many requests'
 });
- 
-// apply to all requests
-app.use(limiter);
 
-//lets the app use morgan in dev mode
-app.use(morgan('dev'));
-
-//lets the app use the body parser to parse the 
-//  this one is specifically for strings and arrays
-app.use(bodyParser.urlencoded({extended:true}));
-//  and this one is sepecifically for json files
-app.use(bodyParser.json());
+//applies all the packages
+app.use(
+    bodyParser.json(),
+    bodyParser.urlencoded({extended:true}),
+    limiter,
+    morgan('dev'),
+);
 
 //get routes for endpoints
 app.use('/orders', ordersRoutes)
 app.use('/login', loginRoutes);
 app.use('/api_docs', apiDocsRoutes);
-app.use('/cal_data', cal_dataRoutes);
-app.use('/validate_account', validate_accountRoutes);
-app.use('/create_account', create_accountRoutes);
+app.use('/cal_data', calDataaRoutes);
+app.use('/validate_account', validateAccountRoutes);
+app.use('/create_account', createAccountRoutes);
 
 
 
