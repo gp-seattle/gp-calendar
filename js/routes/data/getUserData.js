@@ -17,7 +17,7 @@ router.get('/', (req, res, next) => {
     console.log(req.cookies.email)
 
     if  (email && seshId && checkSession(email, seshId)) {
-        var users = require('./../modules/encryption/decryptUsers.js')
+        var users = require('./../../modules/encryption/decryptUsers.js')
         //checks to ensure account is valid
         for(user in users) {
             //finds account
@@ -45,7 +45,7 @@ router.get('/', (req, res, next) => {
 
 //checks if session is valid
 function checkSession(email, id) {
-    var sessions = require('./../modules/encryption/decryptSessions.js')
+    var sessions = require('./../../modules/encryption/decryptSessions.js')
     console.log(sessions[email] == id)
 }
 

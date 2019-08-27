@@ -1,7 +1,7 @@
 //changes the validated value of a user to true when the api is called
 const express = require('express')
 const router = express.Router();
-var encryptUsers = require('../../modules/encryption/encryptUsers')
+var encryptUsers = require('./../../modules/encryption/encryptUsers')
 
 
 router.put('/', (req, res, next) => {

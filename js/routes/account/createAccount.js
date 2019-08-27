@@ -13,7 +13,7 @@ const express = require('express')
 //acts sort of like a middleware with routing capabilities
 const router = express.Router();
 const paramsNeeded = ['email', 'hashpass', 'name', 'year', 'isStudentLeader', 'gender']
-var users = require('../../modules/encryption/decryptUsers')
+var users = require('./../../modules/encryption/decryptUsers')
 
 // handle incoming request to /users
 router.post('/', (req, res, next) => {
@@ -59,7 +59,7 @@ router.post('/', (req, res, next) => {
 
     users[users.length] = newAcc
 
-    var encryptAll = require('../../modules/encryption/encryptUsers.js')
+    var encryptAll = require('./../../modules/encryption/encryptUsers.js')
 
     encryptAll(users)
 
