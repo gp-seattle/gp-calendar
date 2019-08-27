@@ -12,7 +12,7 @@ router.use(cookieParser())
 
 // handle incoming request to /users
 router.delete('/', (req, res, next) => {
-    var sessions = require('./../data/sessions.json')
+    var sessions = require('./../../data/sessions.json')
     var sessionIds = sessions[req.cookies.email]
 
     sessionIds.splice(sessionIds.indexOf(req.cookies.seshId), 1)
