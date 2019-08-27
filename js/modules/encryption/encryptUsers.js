@@ -8,7 +8,7 @@ const encoding = 'hex'
 //takes in an unencrypted list of users and writes an encrypted version to the users.json file
 function encryptAll(users) {
     var password = require('./genPass')
-    fs.writeFileSync('./data/password.json', JSON.stringify(password))
+    fs.writeFileSync('./data/usersPass.json', JSON.stringify(password))
 
     //encrypts the data
     var encryptUsers = []

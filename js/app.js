@@ -11,11 +11,12 @@ const bodyParser = require('body-parser');
 //sets up api endpoints
 const ordersRoutes = require('./routes/orders')
 const loginRoutes = require('./routes/login/login')
-const apiDocsRoutes = require('./routes/api_docs')
-const calDataaRoutes = require('./routes/cal_data')
-const createAccountRoutes = require('./routes/create_account')
-const validateAccountRoutes = require('./routes/validateAccount.js')
-
+const apiDocsRoutes = require('./routes/apiDocs')
+const calDataaRoutes = require('./routes/data/calData')
+const createAccountRoutes = require('./routes/account/createAccount')
+const validateAccountRoutes = require('./routes/account/validateAccount')
+const logoutRoute = require('./routes/login/logout')
+const getUserDataRoute = require('./routes/data/getUserData')
 
 //enables cors
 app.use((req, res, next) => {
@@ -51,8 +52,8 @@ app.use('/api_docs', apiDocsRoutes);
 app.use('/cal_data', calDataaRoutes);
 app.use('/validate_account', validateAccountRoutes);
 app.use('/create_account', createAccountRoutes);
-
-
+app.use('/logout', logoutRoute);
+app.use('/get_user_data', getUserDataRoute);
 
 //handles 404 not found
 app.use((req, res, next) => {

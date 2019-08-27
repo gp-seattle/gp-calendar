@@ -1,11 +1,11 @@
 //changes the validated value of a user to true when the api is called
 const express = require('express')
 const router = express.Router();
-const encryptUsers = require('./../modules/encryptUsers')
+var encryptUsers = require('../../modules/encryption/encryptUsers')
 
 
 router.put('/', (req, res, next) => {
-    var users = require('./../modules/decryptUsers')
+    var users = require('../../modules/encryption/decryptUsers')
     var done = false
     for (user in users) {
         if(users[user]['email'] == req.query.email) {

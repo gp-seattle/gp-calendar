@@ -13,7 +13,7 @@ const express = require('express')
 //acts sort of like a middleware with routing capabilities
 const router = express.Router();
 const paramsNeeded = ['email', 'hashpass', 'name', 'year', 'isStudentLeader', 'gender']
-var users = require('./../modules/decryptUsers')
+var users = require('../../modules/encryption/decryptUsers')
 
 // handle incoming request to /users
 router.post('/', (req, res, next) => {
@@ -33,19 +33,14 @@ router.post('/', (req, res, next) => {
   if (!valid) {     //error for missing keys
     const error = new Error("Bad Requests");
     error.status = 403;
-    error.message = "403 Missing parameter: " + paramMissing;
+    error.message = "403 in create_account. Missing parameter: " + paramMissing;
     next(error);    
       
   } else if (containsEmail(users, params['email'])){     //errors for existing account
     const error = new Error("Bad Requests");
     error.status = 403;
-    error.message = "403 Account already exists with given email"
+    error.message = "403 in create_account. Account already exists with given email"
     next(error);    
-  } else if (!params['email'].endsWith('@gpmail.org') && params['isAdmin'] == 'true') {
-    const error = new Error("Bad Requests");
-    error.status = 403;
-    error.message = "403 Email is not valid for an admin account"
-    next(error);   
   } else {     //valid request
 
     var admin = params['email'].endsWith('@gpmail.org').toString()
@@ -64,7 +59,7 @@ router.post('/', (req, res, next) => {
 
     users[users.length] = newAcc
 
-    var encryptAll = require('./../modules/encryptUsers.js')
+    var encryptAll = require('../../modules/encryption/encryptUsers.js')
 
     encryptAll(users)
 

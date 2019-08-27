@@ -4,7 +4,7 @@ const express = require('express')
 //acts sort of like a middleware with routing capabilities
 const router = express.Router();
 
-const DATA_BACKUP = require('../modules/calDataToJson')
+const DATA_BACKUP = require('../../modules/calDataToJson')
 
 var data = DATA_BACKUP
 
