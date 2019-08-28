@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href = "Calendar.css" rel = "stylesheet" type = "text/css" >
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Encode+Sans|Encode+Sans+Condensed&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title> A2F Calendar</title> <!-- This is what shows up on the tab -->
+</head>
+
+	<!-- There are 6 types of headers (h1... h6) -->
+	<h1> Acts 2 Fellowship </h1>
+	<h2> August</h2>
+
+
+<body>
+	<div class="row">
+		<div class="column">
+			<h3 class="Filter"> Filter by Class </h3>
+			<div id="myBtnContainer" class="filterButtons"> <!-- these are the buttons to filter -->
+				<button class= "btn active" onclick="filterSelection('all')"> Show All </button>
+				<button class= "btn" onclick="filterSelection('freshman')"> Freshman </button>
+				<button class= "btn" onclick="filterSelection('sophomore')"> Sophomores </button>
+				<button class= "btn" onclick="filterSelection('junior')"> Juniors </button>
+				<button class= "btn" onclick="filterSelection('senior')"> Seniors </button>
+			</div>
+			<h3 class="Bulletin"> Bulletin </h3>
+		</div>
+		<div class="spacing">
+			<p> </p>
+		</div>
+		<div class = "tableflex"> <!--this class is essentially useless-->
+  		<table>
+
+     	<tr class="dayofweek"> <!-- Day of the week -->
+			 	<th>Sun</th>
+			 	<th>Mon</th>
+       	<th>Tues</th>
+       	<th>Wed</th>
+       	<th>Thurs</th>
+       	<th>Fri</th>
+       	<th>Sat</th>
+    	</tr>
+
+    	<tr> <!-- Day 1 - 7 -->
+      	<td>
+					<div class= "datespan"> 01 </div>
+					<div class= "filterDiv freshman event-card">
+						<p class= "summary">Icebreaker Challenges</p>
+						<p class= "description"> Group competitions with amazing prizes </p>
+						<hr>
+						<p class= "description"> Meet in the hub </p>
+					</div>
+					<div class= "filterDiv sophomore event-card">
+						<p class= "summary"> Bible study and Dinner</p>
+						<p class= "description"> Come join for a quick bible study and korean barbaque. Meet at 101st. 5:00 </p>
+					</div>
+					<div class= "filterDiv junior event-card">
+						<p class= "summary">Junior Dinner</p>
+						<p class= "description"> Meet in Alder Commons at 6:00</p>
+					</div>
+				</td>
+      	<td>
+					<div class= "datespan" > 02 </div>
+					<div class= "filterDiv freshman event-card">
+						<p class= "summary">Freshman skit practice</p>
+						<p class= "description"> Meet at the HUB at 4:00 </p>
+					</div>
+					<div class= "filterDiv senior event-card">
+						<p class= "summary"> Senior Sports night </p>
+						<p class= "description"> Meet at the IMA at 6:00 </p>
+					</div>
+				</td>
+      	<td>
+					<div class= "datespan" > 03 </div>
+				</td>
+      	<td>
+					<div class= "datespan" > 04 </div>
+				</td>
+      	<td>
+					<div class= "datespan" > 05 </div>
+				</td>
+      	<td>
+					<div class = "datespan" > 06 </td>
+			 	</td>
+      	<td>
+					<div class= "datespan"> 07 </div>
+				</td>
+   	</tr>
+
+    	<tr> <!-- Day 8 - 14 -->
+				<td>
+					<div class= "datespan" > 08 </div>
+				</td>
+      	<td>
+					<div class= "datespan" > 09 </div>
+				</td>
+      	<td>
+					<div class= "datespan" > 10 </div>
+				</td>
+      	<td>
+					<div class= "datespan" > 11 </td>
+			 	</td>
+      	<td>
+					<div class= "datespan"> 12 </div>
+				</td>
+				<td>
+					<div class= "datespan"> 13 </div>
+				</td>
+				<td>
+					<div class= "datespan"> 14 </div>
+				</td>
+    	</tr>
+
+    	<tr> <!-- Day 15 - 21 -->
+				<td>
+					<div class= "datespan" > 15 </div>
+				</td>
+      	<td>
+					<div class= "datespan" > 16 </div>
+				</td>
+      	<td>
+					<div class= "datespan" > 17 </div>
+				</td>
+      	<td>
+					<div class= "datespan" > 18 </td>
+			 	</td>
+      	<td>
+					<div class= "datespan"> 19 </div>
+				</td>
+				<td>
+					<div class= "datespan"> 20 </div>
+				</td>
+				<td>
+					<div class= "datespan"> 21 </div>
+				</td>
+    	</tr>
+			<tr> <!-- Day 22 - 28-->
+				<td>
+					<div class= "datespan" > 22 </div>
+				</td>
+				<td>
+					<div class= "datespan" > 23 </div>
+				</td>
+				<td>
+					<div class= "datespan" > 24 </div>
+				</td>
+				<td>
+					<div class= "datespan" > 25 </div>
+				</td>
+				<td>
+					<div class= "datespan" > 26 </div>
+				</td>
+				<td>
+					<div class= "datespan" > 27 </div>
+				</td>
+				<td>
+					<div class= "datespan" > 28 </div>
+				</td>
+				<tr>
+					<td>
+						<div class= "datespan" > 29 </div>
+					</td>
+					<td>
+						<div class= "datespan" > 30 </div>
+					</td>
+
+  		</table>
+		</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+filterSelection("all")
+function filterSelection(c) {
+	var x,i;
+	x = document.getElementsByClassName("filterDiv");
+	if (c== "all") c= "";
+	for (i = 0; i<x.length; i++){
+		RemoveClass(x[i], "show");
+		if (x[i].className.indexOf(c) > -1) AddClass(x[i], "show");
+	}
+}
+function AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+
+</script>
+
+</body>
+</html>
