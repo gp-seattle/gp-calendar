@@ -22,9 +22,20 @@
     "/delete_account [WIP]" : {
         "descript" : "DELETE=> Deletes an existing account. Takes an email and a hashed password."
     },
+    "/get_user_data [DEPRECATED]" : {
+        "descript" : "GET=> Downloads an excel file with the user data. Requester must have valid cookies, have a validated account, and be an admin.",
+        "format" : "RETURNED=> 403 error if an account already exists with the given email"
+    },
+    "/logout" : {
+        "descript" : "DELETE=> Deletes the current session as well as the browser's cookies. There must be seshId and email cookie."
+    },
+    "/end_all_sessions [WIP]" : {
+        "descript" : "DELETE=> Deletes all sessions. There must be an email cookie."
+    },
     "/login [WIP]" : {
-        "descript" : "GET=> Takes an email and a hashed password. Returns a 403 error if the login was not successful.",
-        "params" : "PARAMS=> ('email' : '', 'pass' : '')"
+        "descript" : "GET=> Takes an email and a hashed password.",
+        "params" : "PARAMS=> ('email' : '', 'pass' : '')",
+        "format" : "RETURNED=> 403 Error if not successful, or missing parameters"
 
     },
     "/orders" : {

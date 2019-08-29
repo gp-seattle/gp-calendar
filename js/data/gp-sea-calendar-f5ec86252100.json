@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "gp-sea-calendar",
+  "private_key_id": "f5ec86252100dc162ea0ee75aab4836d8dea4fab",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDKR4PtxWxgxu86\nsFUl4J68tttD96pqLp/U8E4QBc5J02Y6B5tZmIXDV/mL/wgQ4LZ+8yBs5rsACioS\nUuJCvDZPU6L4sMnRQP1xjxkhyYcTMcQ1+JoGOn9KBzAYYohy9sdkK/xS91t34MUs\nOXTOCNW5HDq+e+kEsi+If4t+xaEqwk/AG/j+E4javCtMnfWus2jR2kWeaOaIQOqW\nT1D8ZTxdhdG59aoPrrl+1pHEZMAHEBcVjpAcmxC9OsnYrV+cE4QRAOcjUtrnGjR5\nU8MYHUv9Lk/zIeVgnvJNSkRKyrhbOKI31V7RjEAwAb8twjudHK4IF1tGmGEXjt9w\nyF3CXQMjAgMBAAECggEADxTKT+XCd2vj/DX9zM3BdNDhUJQpJX+Fm4rksKpUjHAk\nrm23KTS6jF6FYYJ8zhCJXelJYQH9R6FHLIfEQAHn8eQkQdk63GbopOXS+hAcPQce\npoBH44nK+1b4pzWTD/2faIC+PRiDvlCIz6V9AVUeGI4NQMepdbGSfHsEVUntnGvJ\nMwqUHdGtZgYjAZkRcFqgpDA0yYPs5eC9PdqWhF9onCAzdfu3i+IIOyqAoSZSOo06\nI/wYVSqMy1kZSpMqJcRdq+nqE7X+8yanK/PgrgvHLOZvbgmdlQQ4auPVnXmpK0DA\n6QiQsYqgM2ubQNqsyCCyU8+RPoWdC9QbuGE8PxecEQKBgQDqv8+R5LUCp+wQWhJk\noaceGze1aS8zip5bVK4RwzhO5agEAtoTcJnA+aFjMdM0yBITw5OX5XfqN415pC1P\nVbKRg+WB8UZJgdQJw8ddOiwQTqId8+xtWUy3jSwvuQJ8zApAEEwV+2XIpetz7EF8\nxlcZCWEsqjsIPJfBAjxvF5JKOQKBgQDclztV4hBn+SSHZIwZXU9NUl0lBF5nll4W\nPZrF1QP31btvULvsZfmrGEmNZm+K2BR+tt2KMtDav0BdyrTbt+g+Y+1ifaBqkKpV\ns75Y4KyWYSnWXoIjkf5Q4r8GQrUeGSp/cUepW9l8CEIZxfRtFevrf/Aasm3nn2Bj\ncvMs7HUoOwKBgQDU9AQc2VjLfAHOI6ej2nF8AjzbOPw0yX82Yu819d7S08tDOEMU\nd4VDZjFdhwmOTCD6BOWTWfsaYiLZQnJIEfnXv8snwfR9ImV0JkJo9Cic8nhmq6zC\n1cueh1aaRD9Zbs+tphsfpduD1eBuXNhblKHWeIfKuPKsWitgT+L69GslIQKBgAb6\nPaU8zloLlm017/yJaA3BEjMujTHnnrhDYJbrYwG+3/voaNlUbG5OCV2QpOyWYyeS\n7zUE4Hha3lVZKRleGtmGXabk5GMailjFo7q5+JuVHTarrKAlaQ7z7SjsiUAXebGo\nSqT/w8RZmoWoLlAZBmpflJ+zjyhpcSoUI78DB72rAoGBAKEwo3fEX5cU19KmzKci\nkWvOZrCJ2O3jfp1ww6TzZ1oJIH/NcXZUrYrEGa3i+yGpILLLbHlOY+bCWVmuqTzO\n7pZ1Od5d9zzSSQLKjS7+/cQ0oiKik0ZO/wpMLR3WVBZRf/jAcbeVYwSC26OYI4B1\nWEFn8R2bhqLkvVIbJ2xgTE1i\n-----END PRIVATE KEY-----\n",
+  "client_email": "gp-sea-bot@gp-sea-calendar.iam.gserviceaccount.com",
+  "client_id": "109354557251753917829",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gp-sea-bot%40gp-sea-calendar.iam.gserviceaccount.com"
+}
