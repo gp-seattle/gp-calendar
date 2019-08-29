@@ -13,29 +13,15 @@ router.use(cookieParser())
 // handle incoming request to /users
 router.get('/', (req, res, next) => {
 
-    var pass
-    function makeid(length) {
-        var result           = '';
-        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        var charactersLength = characters.length;
-        for ( var i = 0; i < length; i++ ) {
-           result += characters.charAt(Math.floor(Math.random() * charactersLength));
-        }
-        return result;
-     }
-    pass = makeid(32);
+    res.cookie('seshId', 'nihuvLouSvqpJFvxBLTeCNgetG2R31y7')
+    res.cookie('email', 'wyatt@gpmail.org')
 
-    console.log(pass)
-
-    res.cookie('seshId', pass)
-
-    res.status(200)
    // fs.writeFileSync('./data/users.json', JSON.stringify(writeMe ));
     
-    var cook = req.cookies.seshId
-    console.log(cook)
+    res.status(200);
+    res.send('success');
 
-    res.send(req.cookies.seshId);
+    console.log(req.cookies)
 });
 
 

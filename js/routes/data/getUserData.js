@@ -16,9 +16,9 @@ router.get('/', (req, res, next) => {
     //gets the cookies
     var email = req.cookies.email;
     var seshId = req.cookies.seshId
+    var validated = req.cookies.validated
     //checks cookies are valid
-    if  (email && seshId && checkSession(email, seshId)) {
-
+    if  (email && seshId && validated && checkSession(email, seshId)) {
         var users = require('./../../modules/encryption/decryptUsers.js')
         //checks if user is an admin
         if(isAdmin(email, users)) {
@@ -57,6 +57,7 @@ function checkSession(email, id) {
     for (index in sessions[email]) {
         if (sessions[email][index] == id) {
             found = true
+            break;
         }
     }
     return found

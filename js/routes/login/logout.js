@@ -12,17 +12,25 @@ router.use(cookieParser())
 
 // handle incoming request to /users
 router.delete('/', (req, res, next) => {
-    var sessions = require('./../../data/sessions.json')
+    var sessions = require('./../../modules/encryption/decryptSessions.js')
     var sessionIds = sessions[req.cookies.email]
 
-    sessionIds.splice(sessionIds.indexOf(req.cookies.seshId), 1)
+    if (req.cookies.seshId && req.cookies.email){
+        sessionIds.splice(sessionIds.indexOf(req.cookies.seshId), 1)
 
-    fs.writeFileSync('./data/sessions.json', JSON.stringify(sessions, null, 3));
-    
-    res.cookie('seshId', 'null', {maxAge: 0})
-    res.cookie('seshId', 'null', {maxAge: 0})
-    res.status(200)
-    res.send("route setup properly")
+        var encryptAll = require('./../../modules/encryption/encryptSessions.js')
+        encryptAll(sessions)
+        
+        res.cookie('seshId', 'null', {maxAge: 0})
+        res.cookie('seshId', 'null', {maxAge: 0})
+        res.status(200)
+        res.send("Successfully logged out")
+    } else {
+        const error = new Error("Bad Requests");
+        error.status = 403;
+        error.message = "403 in logout. Missing cookies";
+        next(error); 
+    }
     
 });
 
