@@ -2,7 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   background-color: white;
   display: flex;
-  flex-direction: column;
+  flex-flow: column;
 }
 h1 {
   font-family: 'Encode Sans Condensed', serif;
@@ -16,11 +16,10 @@ h1 {
 }
 h2 {
   //Month
-  /* font-family: 'Encode Sans', sans-serif; */
 font-family: 'Encode Sans Condensed', sans-serif;
   color: white;
   font-size: 2rem;
-  text-align: center;
+  text-align: left;
   font-weight: bolder;
   background-color: #4A4AAD;
   padding: 20px 10px;
@@ -40,20 +39,15 @@ h3 {          //filter label
   font-size: 15px;
   text-align: center;
 
-
 }
 
 td, tr {
-  /* font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; */
-  /* font-family: 'Encode Sans', sans-serif; */
 font-family: 'Open sans', sans-serif;
-    /* font-family:verdana, sans-serif; */
 }
 p {
   display: block;
   font-size: 10px;
   margin-left: 0.25em;
-
 
 }
 .row {
@@ -68,11 +62,11 @@ p {
 }
 .Filter{
   margin-top:0em;
-  padding: 5px;
+  padding: 2px;
   background color: white;
-  border-style:solid;
+  border-bottom-style:solid;
   border-color: #7d7dcf;
-  border-width: 2px;
+  border-width: 2.5px;
 }
 .filterDiv{
   display: none; /*hidden by default*/
@@ -81,26 +75,30 @@ p {
   display: block; /*should show the card once activated*/
 }
 .Bulletin {
-  margin-top: 5em;
+  margin-top: 2em;
+  padding: 2px;
   background-color: white;
+  border-bottom-style: solid;
+  border-color: #7d7dcf;
+  border-width: 2.5px;
 }
 .tableflex{
-  /* width: 100vw; */
+  display: flex;
+  flex-direction:column;
+  flex: 1 1 0;
+  padding: 10px;
 }
 
 table {
-  /* table-layout: fixed; */
-  /* width:80vw; */
+  height: 100%;
+  width: 100%;
+  table-layout: fixed;
+
 }
 
 table, th, td {
   border: 0.5px solid #000;
   border-collapse: collapse;
-}
-
-
-tr {
-  min-height:100px;
 }
 
 th, td {
@@ -109,31 +107,35 @@ th, td {
   padding-left: 0.25em;
   padding-right: 0.25em;
 }
-td{
-  /* display:in-block; troubleshooting */
-  vertical-align: top;
-  min-width:150px;
-  max-width:100%;
-  min-height: 15em;
-  height: 100px;
+
+tr {
+  min-height:100px;
 }
 
 th{
+  display:table-cell;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
 
 }
+td{
+  vertical-align: top;
+  min-height: 15em;
+  height: 100px; */
+
+}
+
 
 
 .dayofweek {
   font-size:15px;
-  /* background-color: #ddd; */
   background-color:#7d7dcf;
   color:white;
 }
 
 
 .event-card {
+  flex-grow:1;
   border-radius: 5px;
   border-width: 10px;
   margin: 0.5em 0 0.5em 0;
@@ -142,6 +144,7 @@ th{
   padding-right: 0em;
 }
 .summary {
+  flex-grow:1;
   margin: 0;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
@@ -150,6 +153,7 @@ th{
   font-size:8px;
 }
 .datespan {
+  flex-grow: 1;
   font-size: 10px;
   text-align: right;
   padding-top: 0.2em;
@@ -207,4 +211,17 @@ th{
 .btn.active {
   background-color: #666;
   color: white;
+}
+
+.blnheader{
+  color:#34344c;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 5px;
+
+}
+.blndescription{
+  font-size: 10px;
+  font-style:300;
+  margin-top: 5px;
 }
