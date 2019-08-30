@@ -4,19 +4,24 @@ body {
   display: flex;
   flex-flow: column;
 }
-h1 {
-  font-family: 'Encode Sans Condensed', serif;
-  color: #4A4AAD;
-  font-size: 3rem;
-  font-weight: bold;
-  text-align: center;
-  background-color: #white;
+#logo{
+  margin-top: 10px;
   margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+h1{
+  background-color: #F5F5F5;
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-top: -20px;
 
 }
-h2 {
-  //Month
-font-family: 'Encode Sans Condensed', sans-serif;
+
+/* h2 {
+  font-family: 'Encode Sans Condensed', sans-serif;
   color: white;
   font-size: 2rem;
   text-align: left;
@@ -31,14 +36,29 @@ font-family: 'Encode Sans Condensed', sans-serif;
   outline-style: solid;
   outline-color: #4A4AAD;
   outline-width: thick;
+} */
 
-
+h2{
+  font-family: 'Roboto Mono', monospace;
+  font-size: 60px;
+  margin-top: -20px;
+  margin-bottom: -40px;
+  color:rgb(145,123,76);
+  
 }
-h3 {          //filter label
+
+h3 {    
   color: black;
   font-size: 15px;
   text-align: center;
 
+}
+
+th{
+  font-family: 'Roboto Mono', monospace;      
+  height: 40px;
+  font-size: 15px;
+  background-color: #4b2e83;
 }
 
 td, tr {
@@ -63,7 +83,7 @@ p {
 .Filter{
   margin-top:0em;
   padding: 2px;
-  background color: white;
+  background-color: white;
   border-bottom-style:solid;
   border-color: #7d7dcf;
   border-width: 2.5px;
@@ -90,6 +110,7 @@ p {
 }
 
 table {
+  margin-top: 40px;
   height: 100%;
   width: 100%;
   table-layout: fixed;
@@ -102,7 +123,6 @@ table, th, td {
 }
 
 th, td {
- //from text to the border spacing
   padding-top: 0.25em;
   padding-left: 0.25em;
   padding-right: 0.25em;
@@ -121,7 +141,7 @@ th{
 td{
   vertical-align: top;
   min-height: 15em;
-  height: 100px; */
+  height: 100px; 
 
 }
 
@@ -216,7 +236,7 @@ td{
 .blnheader{
   color:#34344c;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: bold;
   margin-bottom: 5px;
 
 }
