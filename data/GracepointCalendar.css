@@ -39,15 +39,17 @@ h1{
 } */
 
 h2{
-  font-family: 'Roboto Mono', monospace;
-  font-size: 60px;
+  /* font-family: 'Roboto Mono', monospace; */ /*AAROnsFont*/
+  font-family: "Encode Sans Compressed",sans-serif; /*testing a font */
+  font-size: 30px;
+  padding: 3px;
   margin-top: -20px;
   margin-bottom: -40px;
   color:rgb(145,123,76);
-  
+
 }
 
-h3 {    
+h3 {
   color: black;
   font-size: 15px;
   text-align: center;
@@ -55,10 +57,10 @@ h3 {
 }
 
 th{
-  font-family: 'Roboto Mono', monospace;      
+  /* font-family: 'Roboto Mono', monospace; */ //Aarons font
   height: 40px;
   font-size: 15px;
-  background-color: #4b2e83;
+  /* background-color: #4b2e83; */
 }
 
 td, tr {
@@ -85,8 +87,9 @@ p {
   padding: 2px;
   background-color: white;
   border-bottom-style:solid;
-  border-color: #7d7dcf;
-  border-width: 2.5px;
+  /* border-color: #7d7dcf; */ /*old color*/
+  border-color: #5043A8; /*test color*/
+  border-width: 2.25px;
 }
 .filterDiv{
   display: none; /*hidden by default*/
@@ -99,8 +102,9 @@ p {
   padding: 2px;
   background-color: white;
   border-bottom-style: solid;
-  border-color: #7d7dcf;
-  border-width: 2.5px;
+  /* border-color: #7d7dcf; */
+  border-color: #5043A8; /*test color*/
+  border-width: 2.25px;
 }
 .tableflex{
   display: flex;
@@ -141,7 +145,7 @@ th{
 td{
   vertical-align: top;
   min-height: 15em;
-  height: 100px; 
+  height: 100px;
 
 }
 
@@ -149,8 +153,9 @@ td{
 
 .dayofweek {
   font-size:15px;
-  background-color:#7d7dcf;
   color:white;
+  /* background-color: #7d7dcf; */
+  background-color: #5043A8;
 }
 
 
