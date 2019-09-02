@@ -142,7 +142,6 @@ function runMe(err, callback) {
             })
         }
 
-
         //Returns true if user is completed and their localUsers index if not
         function findLocalUser(name) {
             for (index in localUsers) {
@@ -164,5 +163,6 @@ function runMe(err, callback) {
         }
     }
 }
+
 
 //module.exports = runMe()
