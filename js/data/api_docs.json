@@ -9,15 +9,15 @@
         "descript" : "GET=> Returns this webpage."
     },
     "/cal_data" : {
-        "descript" : "GET=> Returns events in a json format based on the parameters passed in. Time is in hhmm format. Date is in yyyymmdd format",
-        "params" : "PARAMS=> ([Start_Date: #,] [End_Date : #,] [Start_Time : #,] [End_Time : #])",
-        "format" : "RETURNED=> [{Date : #, Start_Time : #, End_Time : #, What : '', Where : '', Group_GP : #},{...}]",
-        "wip params" : "WIP PARAMS=> ([use_Id : '',] [year: #,])"
+        "descript" : "GET=> Returns events in a json format based on the parameters passed in. Time is in hhmm format. Date is in any valid format found <a href = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse#Date_Time_String_Format'>here</a>. Cookies return the proper group calendar",
+        "params" : "PARAMS=> (['startTime' : #,] ['endTime' : #])",
+        "format" : "RETURNED=> [{'title' : '', 'location' : '', 'startTime' : '', 'endTime' : ''},{...}]",
+        "wip params" : "WIP PARAMS=> Paramless (cookies required)"
     },
     "/create_account" : {
         "descript" : "POST=> Creates a new account. Takes an email, hashed password, name, current year (1-5, 5 is staff), student leader status, and gender.",
-        "params" : "PARAMS=> ('email' : '', 'hashPass' : '', 'name' : '', 'year' : #, 'isStudentLeader' : '', 'gender' : '')",
-        "format" : "RETURNED=> 403 error if an account already exists with the given email"
+        "params" : "PARAMS=> ('email' : '', 'hashPass' : '', 'name' : '', ['gender' : ''])",
+        "format" : "RETURNED=> 403 error if an account already exists with the given email, or missing params"
     },
     "/delete_account [WIP]" : {
         "descript" : "DELETE=> Deletes an existing account. Takes an email and a hashed password."

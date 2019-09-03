@@ -50,12 +50,13 @@ router.get('/', (req, res, next) => {
             for (i = 0; i < users.length; i++) {
                 if (users[i]['email'] == req.body.email) {
                     user = users[i]
+
                     break;
                 }
             }
 
             //generates new session and stores cookies
-            if (req.body.pass === user['hashpass'] && found) {
+            if (req.body.pass === user['hashpass']) {
                 res.status(200)
                 var makeid = require ('./../../modules/encryption/genSeshId.js')
                 var id = makeid(req.body.email)

@@ -12,8 +12,10 @@ const express = require('express')
 
 //acts sort of like a middleware with routing capabilities
 const router = express.Router();
-const paramsNeeded = ['email', 'hashpass', 'name', 'year', 'isStudentLeader', 'gender']
+const paramsNeeded = ['email', 'hashpass', 'name']
 var users = require('./../../modules/encryption/decryptUsers')
+var usersToSheets = require('./../../modules/usersToSheets.js')
+
 
 // handle incoming request to /users
 router.post('/', (req, res, next) => {
@@ -43,18 +45,26 @@ router.post('/', (req, res, next) => {
     next(error);    
   } else {     //valid request
 
+    //ensures only valid emails get admin
     var admin = params['email'].endsWith('@gpmail.org').toString()
+
+    //allows for gender to be input as an option
+    gender = ''
+    if (params['gender']) {
+      gender = params['gender']
+    }
+
 
     //creates new account info
     var newAcc = {
       'email' : params['email'],
       'hashpass' : params['hashpass'],
       'name' : params['name'],
-      'year' : params['year'], 
-      'isStudentLeader' : params['isStudentLeader'],
+      'year' : 'frosh', 
+      'isStudentLeader' : '',
       'isAdmin' : admin,
-      'gender' : params['gender'],
-      'validated' : "false"
+      'gender' : 'male',
+      'validated' : 'false'
     }
 
     users[users.length] = newAcc
@@ -63,6 +73,8 @@ router.post('/', (req, res, next) => {
 
     encryptAll(users)
 
+    //usersToSheets();
+    
     res.status(200)
     res.end()
   }

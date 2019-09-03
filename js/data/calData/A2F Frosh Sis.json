@@ -1,0 +1,83 @@
+{
+	"group": "A2F Frosh Sis",
+	"events": [
+		{
+			"title": "Prayer Meeting (pls bring prayer cards)",
+			"location": "Ald Aud",
+			"startTime": "Wed Sep 04 2019 20:00:00 GMT-0700 (PDT)",
+			"endTime": "Wed Sep 04 2019 21:00:00 GMT-0700 (PDT)"
+		},
+		{
+			"title": "A2F Friday  ",
+			"location": "Alder 107",
+			"startTime": "Fri Sep 06 2019 19:30:00 GMT-0700 (PDT)",
+			"endTime": "Fri Sep 06 2019 20:30:00 GMT-0700 (PDT)"
+		},
+		{
+			"title": "SWS Setup",
+			"location": "Genome",
+			"startTime": "Sun Sep 08 2019 11:00:00 GMT-0700 (PDT)",
+			"endTime": "Sun Sep 08 2019 11:45:00 GMT-0700 (PDT)"
+		},
+		{
+			"title": "SWS Ops",
+			"location": "Vista Cafe",
+			"startTime": "Sun Sep 08 2019 11:15:00 GMT-0700 (PDT)",
+			"endTime": "Sun Sep 08 2019 12:45:00 GMT-0700 (PDT)"
+		},
+		{
+			"title": "SWS",
+			"location": "Genome",
+			"startTime": "Sun Sep 08 2019 13:00:00 GMT-0700 (PDT)",
+			"endTime": "Sun Sep 08 2019 14:20:00 GMT-0700 (PDT)"
+		},
+		{
+			"title": "Midweek Prayer Meeting",
+			"location": "Alder Aud",
+			"startTime": "Wed Sep 11 2019 20:30:00 GMT-0700 (PDT)",
+			"endTime": "Wed Sep 11 2019 21:30:00 GMT-0700 (PDT)"
+		},
+		{
+			"title": "A2F Fridays",
+			"location": "campus",
+			"startTime": "Fri Sep 13 2019 18:30:00 GMT-0700 (PDT)",
+			"endTime": "Fri Sep 13 2019 23:00:00 GMT-0700 (PDT)"
+		},
+		{
+			"title": "SWS Setup, Ops",
+			"location": "Alder Aud",
+			"startTime": "Sun Sep 15 2019 10:45:00 GMT-0700 (PDT)",
+			"endTime": "Sun Sep 15 2019 13:00:00 GMT-0700 (PDT)"
+		},
+		{
+			"title": "SWS",
+			"location": "Alder Aud",
+			"startTime": "Sun Sep 15 2019 13:00:00 GMT-0700 (PDT)",
+			"endTime": "Sun Sep 15 2019 14:20:00 GMT-0700 (PDT)"
+		},
+		{
+			"title": "Midweek Prayer Meeting",
+			"location": "Alder Aud",
+			"startTime": "Wed Sep 18 2019 20:30:00 GMT-0700 (PDT)",
+			"endTime": "Wed Sep 18 2019 21:30:00 GMT-0700 (PDT)"
+		},
+		{
+			"title": "A2F Fridays",
+			"location": "campus",
+			"startTime": "Fri Sep 20 2019 18:30:00 GMT-0700 (PDT)",
+			"endTime": "Fri Sep 20 2019 23:00:00 GMT-0700 (PDT)"
+		},
+		{
+			"title": "SWS Setup, Ops",
+			"location": "Alder Aud",
+			"startTime": "Sun Sep 22 2019 10:45:00 GMT-0700 (PDT)",
+			"endTime": "Sun Sep 22 2019 13:00:00 GMT-0700 (PDT)"
+		},
+		{
+			"title": "SWS",
+			"location": "Alder Aud",
+			"startTime": "Sun Sep 22 2019 13:00:00 GMT-0700 (PDT)",
+			"endTime": "Sun Sep 22 2019 14:20:00 GMT-0700 (PDT)"
+		}
+	]
+}
