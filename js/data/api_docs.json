@@ -19,8 +19,10 @@
         "params" : "PARAMS=> ('email' : '', 'hashPass' : '', 'name' : '', ['gender' : ''])",
         "format" : "RETURNED=> 403 error if an account already exists with the given email, or missing params"
     },
-    "/delete_account [WIP]" : {
-        "descript" : "DELETE=> Deletes an existing account. Takes an email and a hashed password."
+    "/delete_account" : {
+        "descript" : "DELETE=> Deletes an existing account. Takes an email and a hashed password as well as requiring valid session and email cookies",
+        "params" : "PARAMS=> ('email' : '', 'pass' : '')",
+        "format" : "RETURNED=> 403 error if missing cookies, params are invalid, or cookies are invalid"
     },
     "/get_user_data [DEPRECATED]" : {
         "descript" : "GET=> Downloads an excel file with the user data. Requester must have valid cookies, have a validated account, and be an admin.",
@@ -44,5 +46,12 @@
     "/validate_account" : {
         "descript" : "PUT=> Changes status of account to validated",
         "params" : "PARAMS=> ('email' : '')"
+    },
+    "/verifyUserInfo" : {
+        "descript" : "GET=> Requires an validated admin account cookies. Returns a JSON of user data [{'name' : '', 'year' : '', 'gender' : '', 'sl' : ''},{...}]",
+        "format" : "RETURNED=> 403 error if missing cookies, params are invalid, or cookies are invalid",
+        "descript2" : "PUT=> Requires an validated admin account cookies as well as a JSON of user data [{'name' : '', 'year' : '', 'gender' : '', 'sl' : ''},{...}]. Updates server's database with new data",
+        "format2" : "RETURNED=> 403 error if missing cookies, params are invalid, or cookies are invalid"
+        
     }
 }

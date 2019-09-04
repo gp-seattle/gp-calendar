@@ -17,10 +17,13 @@ const createAccountRoutes = require('./routes/account/createAccount')
 const validateAccountRoutes = require('./routes/account/validateAccount')
 const logoutRoute = require('./routes/login/logout')
 const getUserDataRoute = require('./routes/data/getUserData')
+const deleteAccountRoute = require('./routes/account/deleteAccount.js')
+const userJsonRoute = require('./routes/data/verifyUserInfo')
 
 //enables cors
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE")
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
@@ -54,6 +57,17 @@ app.use('/validate_account', validateAccountRoutes);
 app.use('/create_account', createAccountRoutes);
 app.use('/logout', logoutRoute);
 app.use('/get_user_data', getUserDataRoute);
+app.use('/delete_account', deleteAccountRoute);
+
+
+
+
+app.use('/userJson' , userJsonRoute)
+
+
+
+
+
 
 //handles 404 not found
 app.use((req, res, next) => {

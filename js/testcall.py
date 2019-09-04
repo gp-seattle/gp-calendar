@@ -2,6 +2,8 @@ import requests
 import time
 s = requests.Session() 
 
+'''
+
 response = s.get('http://localhost:3100/cal_data')
 print("Cal Data no params/cookeis: \t" + str(response.content)[0:75] + "...")
 
@@ -15,32 +17,54 @@ response = s.get(
 )
 print("\nCal Data start/end: \t\t" + str(response.content)[0:75] + "...")
 
-'''
-response = s.post(
-    'http://localhost:3100/create_account',
-    data = {
-    'email' : 'wyatt4@gpmail.org',
-    'hashpass' : '515151',
-    'name' : 'Wyatt',
-    }
-)
-print("\nCreate account: \t\t" + str(response.content))
 
 '''
+for i in range(0, 10):
+    response = s.post(
+        'http://localhost:3100/create_account',
+        data = {
+        'email' : 'wyatt' + str(i) + '@test.org',
+        'hashpass' : '515151',
+        'name' : 'Wyatt',
+        }
+    )
+    print("\nCreate account: \t\t" + str(response.content))
+    time.sleep(10)
+
+
 
 response = s.get('http://localhost:3100/login',
     data = {
-            'email' : 'wyatt4@gpmail.org',
+            'email' : 'wyatt@test.org',
             'pass' : '515151',
            }
 )
 print("\nLogin no cookie: \t\t" + str(response.content))
 
+'''
+
+response = s.get('http://localhost:3100/orders')
+print("\nGet Validated: \t\t\t" + str(response.content))
+
+
+response = s.get('http://localhost:3100/userJson')
+print("\nGet userJson: \t\t\t" + str(response.content)[0:75])
+
+
+
+response = s.delete("http://localhost:3100/delete_account",
+    data = {
+        'email' : 'wyatt@test.org',
+        'pass' : '515151',
+    }
+)
+print("\nAccount Deletion: \t\t" +  str(response.content))
+
+
 
 response = s.get('http://localhost:3100/cal_data')
 print("\nCal Data with cookeis: \t\t" + str(response.content)[0:75] + "...")
 
-'''
 
 response = s.delete('http://localhost:3100/logout')
 print("logout: \t\t" + str(response.content))

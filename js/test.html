@@ -1,0 +1,217 @@
+<body>
+    <script>
+        var myParent = document.body
+        var request = new XMLHttpRequest()
+        request.open('GET', 'http://localhost:3100/userJson', true)
+        request.onload = function () {
+            //gets the data
+            var data = JSON.parse(this.response)
+
+            console.log(data)
+
+            setTable(myParent, data)
+
+            var btn = document.createElement("button")
+            btn.innerHTML = "Submit"
+            btn.onclick = function () {
+                users = fillJSON(data) 
+                var request = new XMLHttpRequest()
+                request.open('PUT', 'http://localhost:3100/userJson', true)
+                request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+                request.send(JSON.stringify(users))
+                request.onload = function(){
+                    console.log(request.responseText)
+                }
+            }
+
+            myParent.appendChild(btn)
+        }
+
+        function setTable(myParent, data) {
+            //sets the table up
+            var tbl = document.createElement('table');
+            tbl.style.width = '85%';
+            tbl.setAttribute('border', '1');
+            tbl.id = "mainTable"
+            var tbdy = document.createElement('tbody')
+            var head = document.createElement('tr')
+
+            var headName = document.createElement('td')
+            var headYear = document.createElement('td')
+            var headGen = document.createElement('td')
+            var headSl = document.createElement('td')
+
+            headName.innerHTML = "NAME"
+            headYear.innerHTML = "YEAR"
+            headGen.innerHTML = "GENDER"
+            headSl.innerHTML = "STUDENT LEADER"
+
+            head.appendChild(headName)
+            head.appendChild(headYear)
+            head.appendChild(headGen)
+            head.appendChild(headSl)
+
+            tbdy.appendChild(head)
+
+            for (i = 0; i < data.length; i++) {
+
+                //sets the row
+                var tr = document.createElement('tr');
+
+                //creates the cells
+                var name = document.createElement('td');
+                var year = document.createElement('td');
+                var gender = document.createElement('td');
+                var sl = document.createElement('td');
+
+                //adds the cells
+                tr.appendChild(name)
+                tr.appendChild(year)
+                tr.appendChild(gender)
+                tr.appendChild(sl)
+
+                //sets the name
+                name.innerText = data[i]['name']
+
+                emptyYearOpt = document.createElement('option')
+                emptyYearOpt.value = "-1"
+                emptyYearOpt.innerHTML = "---------------------"
+
+                //sets the year selector
+                yearSel = document.createElement('SELECT')
+                yearSel.appendChild(emptyYearOpt)
+                for (j = 1; j < 5; j++) {
+                    var opt = document.createElement('option')
+                    opt.innerHTML = j
+                    yearSel.appendChild(opt)
+                }
+                var plusOpt = document.createElement('option')
+                plusOpt.value = "5+"
+                plusOpt.innerHTML = "5+"
+                yearSel.appendChild(plusOpt)
+                yearSel.id = 'year' + i
+                year.appendChild(yearSel)
+
+                //autoformating
+                if (data[i]['year'] != '') {
+                    if (parseInt(data[i]['year']) < 5) {
+
+                        yearSel.selectedIndex = parseInt(data[i]['year'])
+                    } else {
+                        yearSel.selectedIndex = 5
+                    }
+                }
+
+
+                //sets the gender selector
+                genSel = document.createElement('SELECT')
+                emptyGenOpt = document.createElement('option')
+                emptyGenOpt.value = "-1"
+                emptyGenOpt.innerHTML = "---------------------"
+
+                var brotherOpt = document.createElement('option')
+                brotherOpt.value = "Brother"
+                brotherOpt.innerHTML = "Brother"
+
+                var sisterOpt = document.createElement('option')
+                sisterOpt.value = "Sister"
+                sisterOpt.innerHTML = "Sister"
+
+                genSel.appendChild(emptyGenOpt)
+                genSel.appendChild(brotherOpt)
+                genSel.appendChild(sisterOpt)
+                genSel.id = 'gen' + i
+
+                //autoformating
+                if (data[i]['gender'] == 'male' || data[i]['gender'] == 'm') {
+                    genSel.selectedIndex = 1
+                } else if (data[i]['gender'] == 'female' || data[i]['gender'] == 'f') {
+                    genSel.selectedIndex = 2
+                }
+                gender.appendChild(genSel)
+
+
+                //sets the sl selector
+                slSel = document.createElement('SELECT')
+                emptySlOpt = document.createElement('option')
+                emptySlOpt.value = "-1"
+                emptySlOpt.innerHTML = "---------------------"
+
+                var yesOpt = document.createElement('option')
+                yesOpt.value = "Yes"
+                yesOpt.innerHTML = "Yes"
+
+                var noOpt = document.createElement('option')
+                noOpt.value = "No"
+                noOpt.innerHTML = "No"
+
+                slSel.appendChild(emptySlOpt)
+                slSel.appendChild(yesOpt)
+                slSel.appendChild(noOpt)
+                slSel.id = 'sl' + i
+                sl.appendChild(slSel)
+
+                //autoformating
+                if (data[i]["isStudentLeader"].toString() == 'true') {
+                    slSel.selectedIndex = 1
+                } else if (data[i]["isStudentLeader"].toString() == 'false') {
+                    slSel.selectedIndex = 2
+                }
+
+
+                tbdy.appendChild(tr)
+            }
+            tbl.appendChild(tbdy)
+            myParent.appendChild(tbl)
+        }
+
+
+        //updates data to send back to the db
+        function fillJSON(data) {
+            
+            for(i = 0; i < data.length; i++) {
+
+                var yearIndex = document.getElementById('year' + i).selectedIndex
+                if (yearIndex === 0) {
+                    data[i]['year'] = ''
+                } else {
+                    data[i]['year'] = yearIndex
+                }
+
+                var genderIndex = document.getElementById('gen' + i).selectedIndex
+                if (genderIndex === 0) {
+                    data[i]['gender'] = ''
+                } else if (genderIndex === 1) {
+                    data[i]['gender'] = 'male'
+                } else {
+                    data[i]['gender'] = 'female'
+                }
+
+                var slIndex = document.getElementById('sl' + i).selectedIndex
+                if (slIndex === 0) {
+                    data[i]['isStudentLeader'] = ''
+                } else if (slIndex === 1) {
+                    data[i]['isStudentLeader'] = true
+                } else {
+                    data[i]['isStudentLeader'] = false
+                }
+            }
+            return data
+        }
+
+
+        request.send()
+
+
+    </script>
+    <p> The car options are:
+        <select>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+        </select>
+    </p>
+
+</body>
