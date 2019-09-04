@@ -50,9 +50,13 @@ router.get('/', (req, res, next) => {
             for (i = 0; i < users.length; i++) {
                 if (users[i]['email'] == req.body.email) {
                     user = users[i]
-
                     break;
                 }
+            }
+
+            if (user === null) {
+                res.status(403)
+                res.send("403 in login. User of email " + req.body.email + " not found")
             }
 
             //generates new session and stores cookies
