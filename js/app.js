@@ -35,8 +35,8 @@ app.use((req, res, next) => {
  
 const limiter = rateLimit({
   windowMs: 1000,
-  max: 10, // limit each IP to 100 requests per windowMs
-  message: // message to be displayed when rate limit is reached
+  max: 10, 
+  message: 
     '429 too many requests'
 });
 
@@ -58,14 +58,7 @@ app.use('/create_account', createAccountRoutes);
 app.use('/logout', logoutRoute);
 app.use('/get_user_data', getUserDataRoute);
 app.use('/delete_account', deleteAccountRoute);
-
-
-
-
-app.use('/userJson' , userJsonRoute)
-
-
-
+app.use('/userJson' , userJsonRoute);
 
 
 
@@ -87,7 +80,5 @@ app.use((error, req, res, next) => {
     })
 });
 
-//exports app 
-//  this sends app over to server.js
 
 module.exports = app;
