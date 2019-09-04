@@ -13,7 +13,6 @@ router.get('/', (req, res, next) => {
     valid = true;
     //ensures returned true and not just exists
     if (valid === true) {
-        console.log("got to sort")
 
         var users = require('../../modules/encryption/decryptUsers.js')
 
@@ -27,13 +26,19 @@ router.get('/', (req, res, next) => {
             tempUser['isStudentLeader'] = users[index]['isStudentLeader']
             userData.push(tempUser)
         }
-        console.log("got to sort")
-
-
 
         userData.sort((a, b) => {
-            return (a['name'] - b['name'])
+            var aName = a['name'].toLowerCase()
+            var bName = b['name'].toLowerCase()
+            if (aName > bName) {
+                return 1;
+            } else if (aName < bName) {
+                return -1
+            } else {
+                return 0
+            }
         });
+
 
         res.send(JSON.stringify(userData))
 
@@ -67,7 +72,6 @@ router.put('/', (req, res, next) => {
 
         var encryptAll = require('../../modules/encryption/encryptUsers.js')
         encryptAll(users)
-        console.log(users)
         res.status(200)
         res.send("Success")
     } else {

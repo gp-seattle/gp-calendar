@@ -30,15 +30,15 @@ router.get('/', (req, res, next) => {
 
         if (user && valid) {
             if (user['gender'] == 'male' || user['gender'] == 'm') {
-                if (user['year'] === 1 || user['year'] === 'frosh') {
+                if (user['year'] === 1 || user['year'] === '1') {
                     data = require('./../../data/calData/A2F Frosh Bro.json')['events']
-                } else {
+                } else  if (user['year'] === 1 || user['year'] === '1') {
                     data = require('./../../data/calData/A2F Soph Bro.json')['events']
-                }
-            } else {
-                if (user['year'] === 1 || user['year'] === 'frosh') {
+                } 
+            } else if (user['gender'] == 'female' || user['gender'] == 'f') {
+                if (user['year'] === 1 || user['year'] === '1') {
                     data = require('./../../data/calData/A2F Frosh Sis.json')['events']
-                } else {
+                } else if (user['year'] === 2 || user['year'] === '2') {
                     data = require('./../../data/calData/A2F Soph Sis.json')['events']
                 }
             }
