@@ -14,7 +14,6 @@ const express = require('express')
 const router = express.Router();
 const paramsNeeded = ['email', 'hashpass', 'name']
 var users = require('./../../modules/encryption/decryptUsers')
-var usersToSheets = require('./../../modules/usersToSheets.js')
 
 
 // handle incoming request to /users
@@ -60,10 +59,10 @@ router.post('/', (req, res, next) => {
       'email' : params['email'],
       'hashpass' : params['hashpass'],
       'name' : params['name'],
-      'year' : 'frosh', 
+      'year' : '', 
       'isStudentLeader' : '',
       'isAdmin' : admin,
-      'gender' : 'male',
+      'gender' : '',
       'validated' : 'false'
     }
 
@@ -72,8 +71,6 @@ router.post('/', (req, res, next) => {
     var encryptAll = require('./../../modules/encryption/encryptUsers.js')
 
     encryptAll(users)
-
-    //usersToSheets();
     
     res.status(200)
     res.end()
